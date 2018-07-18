@@ -230,8 +230,7 @@ public class CommentGenerator extends DefaultCommentGenerator {
     }
 
     /**
-     * 类注释
-     *
+     * DAO类的注释
      * @param topLevelClass
      * @param introspectedTable
      */
