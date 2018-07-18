@@ -5,7 +5,7 @@ import com.uifuture.common.BaseEntity;
 import java.math.BigDecimal;
 
 /**
- * test comment
+ * 
  * 数据库表: book
  * @author chenhaoxiang 2018-07-18
  */
