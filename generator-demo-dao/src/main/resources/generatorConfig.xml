@@ -9,9 +9,11 @@
     <!--指定特定数据库的jdbc驱动jar包的位置 -->
     <classPathEntry location="${jdbc.driverLocation}"/>
 
+
     <!--<context id="MySQLTables" targetRuntime="MyBatis3Simple">-->
     <!--MyBatis3可以生成selestive-->
     <context id="prod" targetRuntime="MyBatis3">
+
         <!-- 自动识别数据库关键字，默认false，如果设置为true，根据SqlReservedWords中定义的关键字列表；
         一般保留默认值，遇到数据库关键字（Java关键字），使用columnOverride覆盖 -->
         <property name="autoDelimitKeywords" value="false"/>
@@ -34,8 +36,11 @@
         甚至都不会加载rootClass，可以参考配置文件中rootClass相关说明） -->
         <!--<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />-->
 
-        <!-- optional，旨在创建class时，对注释进行控制 -->
-        <commentGenerator>
+        <!-- optional，旨在创建class时，对注释进行控制
+        type为自定义注释
+        -->
+        <!--<commentGenerator type="com.uifuture.config.CommentGenerator">-->
+        <commentGenerator type="com.uifuture.config.CommentGenerator">
             <property name="suppressDate" value="true"/>
             <!-- 是否去除自动生成的注释true：是： false:否 -->
             <property name="suppressAllComments" value="false"/>
@@ -45,6 +50,15 @@
         <!--jdbc的数据库连接 -->
         <jdbcConnection driverClass="${jdbc.driverClass}" connectionURL="${jdbc.connectionURL}"
                         userId="${jdbc.userId}" password="${jdbc.password}">
+            <!--设置可以获取remarks信息
+            该设置可以不用设置，一样可以获取到表的注释信息
+            -->
+            <!--<property name="remarks" value="true"></property>-->
+            <!--设置可以获取tables remarks信息
+            设置生成类的时候可以获取表的注释信息
+            -->
+            <property name="useInformationSchema" value="true"></property>
+
         </jdbcConnection>
 
 
@@ -90,8 +104,10 @@
 
                 需要注意的是，rootClass 属性对应的 value 部分的代码，应该在此项目依赖的一个jar包内存在着，否则根据源码，
                 会找不到这个BaseEntity 部分， 本例中，BaseEntity的代码写在 common模块中， mybatis-generator 写在dao模块中，
-                 dao模块依赖common模块，这样的话，就没有任何问题，否则会一直失效。
-                TODO 但是没有起到  不重新生成父类属性的作用
+                 dao模块依赖common模块，这样的话，就没有任何问题，否则会一直失效。.
+
+                经过尝试发现，通过IDEA插件进行运行的mybatis-generator任然会生成重复属性。
+                只有通过main方法运行才能不重复生成！！！
             -->
             <property name="rootClass" value="com.uifuture.common.BaseEntity"/>
 

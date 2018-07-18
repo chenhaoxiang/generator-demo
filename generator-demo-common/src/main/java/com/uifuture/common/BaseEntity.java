@@ -73,4 +73,13 @@ public class BaseEntity implements Serializable {
         this.updateTime = updateTime;
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("BaseEntity{");
+        sb.append("id=").append(id);
+        sb.append(", createTime=").append(createTime);
+        sb.append(", updateTime=").append(updateTime);
+        sb.append('}');
+        return sb.toString();
+    }
 }
