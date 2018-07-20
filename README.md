@@ -1,6 +1,11 @@
 # generator-demo
 generator的配置项目
 
+可以设置生成扩展类。      
+表字段注释在方法和属性中自动生成  
+表注释在类中自动生成  
+
+
 设置可以获取tables remarks信息
             设置生成类的时候可以获取表的注释信息
 通过设置useInformationSchema为true可解决。
