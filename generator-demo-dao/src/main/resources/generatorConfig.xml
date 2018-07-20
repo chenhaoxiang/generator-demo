@@ -29,7 +29,7 @@
         <!--为生成的Java model添加序列化接口，并生成serialVersionUID字段-->
         <!--<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />-->
         <!--生成tostring方法-->
-        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!--<plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>-->
 
         <!--生成equals与hashCode实现.
         如果Domain类有rootClass，需要重新处理下生成的代码（因为MBG是不会考虑rootClass相关内容的，
