@@ -203,7 +203,7 @@ public class CommentGenerator extends DefaultCommentGenerator {
         }
         field.addJavaDocLine(sb.toString());
         sb = new StringBuilder();
-        sb.append(" * Table Fields : ");
+        sb.append(" * fields name: ");
         //对应表名称
         sb.append(introspectedTable.getFullyQualifiedTable());
         sb.append('.');
@@ -230,7 +230,7 @@ public class CommentGenerator extends DefaultCommentGenerator {
     }
 
     /**
-     * DAO类的注释
+     * 实体类的注释
      * @param topLevelClass
      * @param introspectedTable
      */
@@ -244,7 +244,7 @@ public class CommentGenerator extends DefaultCommentGenerator {
         topLevelClass.addJavaDocLine(sb.toString());
         sb = new StringBuilder();
         //获取数据库表
-        sb.append(" * 数据库表: ");
+        sb.append(" * table name: ");
         sb.append(introspectedTable.getFullyQualifiedTable().getIntrospectedTableName());
         topLevelClass.addJavaDocLine(sb.toString());
 
