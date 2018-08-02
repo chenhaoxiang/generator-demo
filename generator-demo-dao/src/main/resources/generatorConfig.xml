@@ -41,9 +41,12 @@
         -->
         <!--<commentGenerator type="com.uifuture.config.CommentGenerator">-->
         <commentGenerator type="com.uifuture.config.CommentGenerator">
+            <!--只有将suppressDate 设置为false 才能显示时间；-->
             <property name="suppressDate" value="true"/>
             <!-- 是否去除自动生成的注释true：是： false:否 -->
             <property name="suppressAllComments" value="false"/>
+            <!-- 自定义属性 作者名称 -->
+            <!--<property name="author" value="chenhx" />-->
         </commentGenerator>
 
 
