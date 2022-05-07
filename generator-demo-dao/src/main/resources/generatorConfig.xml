@@ -7,7 +7,7 @@
     <properties resource="generator.properties"/>
 
     <!--指定特定数据库的jdbc驱动jar包的位置 -->
-    <classPathEntry location="${jdbc.driverLocation}"/>
+    <!--<classPathEntry location="${jdbc.driverLocation}"/>-->
 
 
     <!--<context id="MySQLTables" targetRuntime="MyBatis3Simple">-->
@@ -112,7 +112,7 @@
                 经过尝试发现，通过IDEA插件进行运行的mybatis-generator任然会生成重复属性。
                 只有通过main方法运行才能不重复生成！！！
             -->
-            <property name="rootClass" value="com.uifuture.common.BaseEntity"/>
+            <!--<property name="rootClass" value="com.uifuture.common.BaseEntity"/>-->
 
 
             <!-- 设置是否在setter方法中，对String类型字段调用trim()方法 -->
@@ -198,7 +198,7 @@
 
             注意，table里面很多参数都是对javaModelGenerator，context等元素的默认属性的一个复写；
          -->
-        <table tableName="book"
+        <table tableName="migration_shop_dfc"
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
             <!--
@@ -212,6 +212,11 @@
             type : 为selectKey元素指定类型, pre或post.指定类型后,selectKey永远在insert语句之前.
             理解这个序列的意思,和插入前后的意思.序列表示表是一个序列,插入之前要先查询表,就需要知道当前指向的位置即主键.而自增主键要在插入之后,才能知道自己的大小.
             -->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"></generatedKey>
+        </table>
+        <table tableName="migration_shop_dfc_error"
+               enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false">
             <generatedKey column="id" sqlStatement="Mysql" identity="true"></generatedKey>
         </table>
     </context>
